@@ -252,7 +252,7 @@ def shuffle_and_split_dataframe(df, seed=0):
     return df.iloc[train_indices], df.iloc[test_indices]
 
 
-def select_known_unknown_classes(x_train, y_train, x_test, y_test, unknown_ratio=None, known_classes=None, unknown_classes=None):
+def select_known_unknown_classes(x_train, y_train, x_test, y_test, unknown_ratio=None, known_classes=None, unknown_classes=None, silent=False):
     if unknown_ratio is None and known_classes is None and unknown_classes is None:
         raise ValueError(f"Please specify either an unknown_ratio or the known and unknown classes.")
     if unknown_ratio is not None and (known_classes is not None or unknown_classes is not None):
@@ -263,7 +263,8 @@ def select_known_unknown_classes(x_train, y_train, x_test, y_test, unknown_ratio
     # Important step: We select some of the known classes to act as "unknown"
 
     classes = np.unique(y_train)
-    print(f"There are {len(classes)} classes in total")
+    if silent is False:
+        print(f"There are {len(classes)} classes in total")
 
     if unknown_ratio is not None:
         rand_index = np.arange(len(classes))
@@ -276,8 +277,9 @@ def select_known_unknown_classes(x_train, y_train, x_test, y_test, unknown_ratio
         if not (isinstance(known_classes, list) and isinstance(unknown_classes, list)) and not (isinstance(known_classes, np.ndarray) and isinstance(unknown_classes, np.ndarray)):
             raise ValueError(f"known_classes and unknown_classes must be either list or np.array")
 
-    print(f"{len(known_classes)} known classes")
-    print(f"{len(unknown_classes)} unknown classes")
+    if silent is False:
+        print(f"{len(known_classes)} known classes")
+        print(f"{len(unknown_classes)} unknown classes")
 
     y_train_save = y_train.copy()
     y_train = np.array(pd.Series(y_train).astype('category').cat.codes).astype(np.int16)  # Numerize
@@ -286,9 +288,10 @@ def select_known_unknown_classes(x_train, y_train, x_test, y_test, unknown_ratio
     y_test_save = y_test.copy()
     y_test = np.array(pd.Series(y_test).astype('category').cat.codes).astype(np.int16)  # Numerize
     y_test[np.in1d(y_test_save, unknown_classes)] = 9999
-    
-    print(f"x_train_df.shape={x_train.shape}")
-    print(f"x_test_df.shape={x_test.shape}")
+
+    if silent is False:
+        print(f"x_train_df.shape={x_train.shape}")
+        print(f"x_test_df.shape={x_test.shape}")
 
     # Numerize the targets
     classifier_mapper, classifier_ind = np.unique(y_train, return_inverse=True)

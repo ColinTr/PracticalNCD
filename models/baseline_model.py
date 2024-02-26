@@ -148,6 +148,10 @@ class ArticleBaselineModel(nn.Module):
                     batch_x_train_known = x_train_known[batch_start_index:batch_end_index]
                     batch_y_train_known = y_train_known[batch_start_index:batch_end_index]
                     batch_y_train_known = torch.tensor(batch_y_train_known, dtype=torch.int64, device=x_train_known.device)
+                    
+                    if len(batch_x_train_known) < 2:
+                        print("Skipping batch of size 1...")
+                        continue
 
                     optimizer.zero_grad()
 

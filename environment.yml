@@ -15,3 +15,6 @@ dependencies:
   - defaults::tqdm=4.65.0
   - plotly::plotly=5.18.0
   - conda-forge::wandb=0.15.12
+  - defaults::requests=2.28.1
+  - defaults::seaborn=0.12.2
+  - defaults::scipy==1.10.0

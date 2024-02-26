@@ -20,3 +20,5 @@ wandb/*
 
 # Figures
 iframe_figures/*
+
+results_wrt_n_unknown_classes/*

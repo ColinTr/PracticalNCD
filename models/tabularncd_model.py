@@ -53,6 +53,9 @@ def smotenc_transform_batch_2(batch, cat_columns_indexes, data_queue, device, k_
 
     full_similarities_matrix -= torch.eye(len(batch), len(full_data), device=device)  # This way, itself wont be in the most similar instances
 
+    if k_neighbors > full_similarities_matrix.shape[1]:
+        print(f"Clipping k_neighbors={k_neighbors} to new max value {full_similarities_matrix.shape[1]}")
+        k_neighbors = full_similarities_matrix.shape[1]
     batch_topk_similar_indexes = full_similarities_matrix.topk(k=k_neighbors, dim=1).indices
 
     # Select a random point between the k closest
@@ -230,8 +233,13 @@ class TabularNCDModel(nn.Module):
 
                     mask_unlab = batch_y_train == unknown_class_value
                     mask_lab = ~mask_unlab
+                    
+                    if sum(mask_unlab) < 2 or sum(mask_lab) < 2:
+                        print("Skipping batch of size 1...")
+                        continue
+                    
                     assert mask_unlab.sum() > 0, "No unlabeled data in batch"
-
+                    
                     # Augment/Transform the data
                     with torch.no_grad():
                         augmented_x_unlab = smotenc_transform_batch_2(batch_x_train[mask_unlab], [],

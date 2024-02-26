@@ -22,6 +22,9 @@ conda env create --file environment.yml --prefix ./venvpracticalncd
 
 # Activate the virtual environment
 conda activate .\venvpracticalncd
+
+# Add package missing from conda repositories
+pip install iteration-utilities==0.11.0
 ```
 
 ### Option 2 - Without Anaconda:
@@ -58,9 +61,10 @@ python -c "import torch; print(torch.cuda.is_available())"
 
 
 ## Execution
-Two notebooks are available:
-- **Full_notebook.ipynb** illustrates how to run the models when the number of clusters *k* is known in advance.
+Three notebooks are available:
+- **Full_notebook.ipynb** lets you train and evaluate the models when the number of clusters *k* is known in advance.
 - **Full_notebook_with_k_estimation.ipynb** (self-explanatory).
+- **results_wrt_n_unknown_classes.ipynb** is used to evaluate the performance of all the models when the number of novel classes increases. It was used to generate Figure C1 of Appendix C.
 
 
 ## Datasets

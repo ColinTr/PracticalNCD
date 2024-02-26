@@ -174,6 +174,11 @@ class PBNModel(nn.Module):
                     batch_x_train = x_train[batch_start_index:batch_end_index]
                     batch_y_train = y_train[batch_start_index:batch_end_index]
                     batch_y_train = torch.tensor(batch_y_train, dtype=torch.int64, device=x_train.device)
+                    mask_known = batch_y_train != unknown_class_value
+                    
+                    if len(batch_x_train) < 2:
+                        print("Skipping batch of size 1...")
+                        continue
 
                     optimizer.zero_grad()
 
@@ -185,10 +190,10 @@ class PBNModel(nn.Module):
                     reconstructed_batch_x = self.decoder_forward(encoded_batch_x)
 
                     # (3) Learn to classify the known data only
-                    y_known_pred = self.classifier_forward(encoded_batch_x[batch_y_train != unknown_class_value])
+                    y_known_pred = self.classifier_forward(encoded_batch_x[mask_known])
                     # =============================
 
-                    ce_loss = ce_loss_func(y_known_pred, batch_y_train[batch_y_train != unknown_class_value])
+                    ce_loss = ce_loss_func(y_known_pred, batch_y_train[mask_known])
                     mse_loss = mse_loss_func(reconstructed_batch_x, batch_x_train) / len(batch_x_train)
 
                     full_loss = w * ce_loss + (1 - w) * mse_loss
