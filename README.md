@@ -9,7 +9,6 @@
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 </div>
 
-<hr/>
 
 ## 🔍 Overview
 This python library proposes an ensemble tools for the Machine Learning problem of [Novel Class Discovery](https://arxiv.org/pdf/2302.12028.pdf).
