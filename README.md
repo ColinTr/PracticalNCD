@@ -13,6 +13,7 @@
 
 
 ## 🔍 Overview
+
 This python library proposes an ensemble tools for the Machine Learning problem of [Novel Class Discovery](https://arxiv.org/pdf/2302.12028.pdf).
 
 In this library, you will find the following tools illustrated through Jupyter Notebooks:
@@ -71,6 +72,7 @@ python -c "import torch; print(torch.cuda.is_available())"
 
 
 ## 💻 Usage
+
 Three notebooks are available:
 - **Full_notebook.ipynb** lets you train and evaluate the models when the number of clusters *k* is known in advance.
 - **Full_notebook_with_k_estimation.ipynb** (self-explanatory).
@@ -78,6 +80,7 @@ Three notebooks are available:
 
 
 ## 📊 Datasets
+
 The datasets will be <u>automatically downloaded</u> from https://archive.ics.uci.edu/ on the first execution.<br/>
 If it fails, please try disabling proxies.
 
@@ -90,6 +93,7 @@ The most impacted datasets are:
 
 
 ## 📜 Citation
+
 If you found this work useful, please use the following citation:
 ```
 @article{tr2024practical,
@@ -104,7 +108,7 @@ If you found this work useful, please use the following citation:
 }
 ```
 
-## License
+## ⚖️ License
 
 Copyright (c) 2023 Orange.
 
