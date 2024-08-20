@@ -1,7 +1,17 @@
-# PracticalNCD
+<p align="center">
+  <h1 align="center">PracticalNCD</h1>
+ 
+  Code used to generate the results of the DMKD journal paper <a href="https://arxiv.org/pdf/2311.05440.pdf">A Practical Approach to Novel Class Discovery in Tabular Data</a>
+</p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<div align="center">
+ 
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+</div>
 
+<hr/>
+
+## 🔍 Overview
 This python library proposes an ensemble tools for the Machine Learning problem of [Novel Class Discovery](https://arxiv.org/pdf/2302.12028.pdf).
 
 In this library, you will find the following tools illustrated through Jupyter Notebooks:
@@ -10,9 +20,8 @@ In this library, you will find the following tools illustrated through Jupyter N
  - Two unsupervised clustering algorithms modified to utilize the data available in the NCD setting.
  - A novel method called PBN (for Projection-Based NCD).
 
-This repository implements the code used to generate the results of the scientific paper "[A Practical Approach to Novel Class Discovery in Tabular Data](https://arxiv.org/pdf/2311.05440.pdf)" (see the citation below).
 
-## Setting up the Python environment
+## 🐍 Setting up the Python environment
 
 ### Option 1 - With [Anaconda](https://www.anaconda.com/download):
 
@@ -60,14 +69,14 @@ python -c "import torch; print(torch.cuda.is_available())"
 ```
 
 
-## Execution
+## 💻 Usage
 Three notebooks are available:
 - **Full_notebook.ipynb** lets you train and evaluate the models when the number of clusters *k* is known in advance.
 - **Full_notebook_with_k_estimation.ipynb** (self-explanatory).
 - **results_wrt_n_unknown_classes.ipynb** is used to evaluate the performance of all the models when the number of novel classes increases. It was used to generate Figure C1 of Appendix C.
 
 
-## Datasets
+## 📊 Datasets
 The datasets will be <u>automatically downloaded</u> from https://archive.ics.uci.edu/ on the first execution.<br/>
 If it fails, please try disabling proxies.
 
@@ -79,7 +88,7 @@ The most impacted datasets are:
 - multiple_feature
 
 
-## Citation
+## 📜 Citation
 If you found this work useful, please use the following citation:
 ```
 @article{tr2024practical,
