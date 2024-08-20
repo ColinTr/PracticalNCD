@@ -1,7 +1,9 @@
+<h1 align="center">
+  PracticalNCD
+</h1>
+  
 <p align="center">
-  <h1 align="center">PracticalNCD</h1>
- 
-  Code used to generate the results of the DMKD journal paper <a href="https://arxiv.org/pdf/2311.05440.pdf">A Practical Approach to Novel Class Discovery in Tabular Data</a>
+  Code used to generate the results of the DMKD journal paper <a href="https://arxiv.org/abs/2311.05440">A Practical Approach to Novel Class Discovery in Tabular Data</a>
 </p>
 
 <div align="center">
