@@ -82,12 +82,15 @@ The most impacted datasets are:
 ## Citation
 If you found this work useful, please use the following citation:
 ```
-@article{tr2023practical,
+@article{tr2024practical,
    title = {A Practical Approach to Novel Class Discovery in Tabular Data},
    author = {Troisemaine, Colin and Reiffers{-}Masson, Alexandre and Gosselin, St{'{e}}phane and Lemaire, Vincent and Vaton, Sandrine},
-   journal = {ArXiv},
-   year = {2023},
-   doi = {10.48550/ARXIV.2311.05440}
+   journal = {Data Mining and Knowledge Discovery},
+   year = {2024},
+   month = {May},
+   day = {31},
+   issn = {1573-756X},
+   doi = {10.1007/s10618-024-01025-y}
 }
 ```
 
